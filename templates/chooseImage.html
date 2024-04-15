@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ChooseImage</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+</head>
+<body class="container mt-5 bg-primary">
+    <form id="chosseImage" method="post" action="/train-new-model">
+        <div class = "d-flex justify-content-around">
+            <button type="button" class="btn btn-success" id="selectAll">Select all</button>
+            <button type="submit" class="btn btn-danger">Train</button>
+        </div>
+        <div style="max-height: 600px; overflow-y: auto;">
+            <table class="table" >
+            <thead class="bg-dark">
+                <tr>
+                    <th>ID</th>
+                    <th>Date of Insertion</th>
+                    <th>Employee ID</th>
+                    <th>Image</th>
+                    <th>Description</th>
+                    <th>Select</th>
+                </tr>
+            </thead>
+            <tbody class="bg-light">
+                {% for image in images %}
+                    <tr>
+                        <td>{{ image.id }}</td>
+                        <td>{{ image.dateOfInsertion }}</td>
+                        <td>{{ image.employeeLabel.id }}</td>
+                        <td><img src={{ image.path }} style="max-width:50px; max-height : 50px"></td>
+                        <td>{{ image.description }}</td>
+                        <td><input type="checkbox" class="select-checkbox" name="image_ids" value="{{ image.id }}"></td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        </div>
+
+    </form>
+
+    <script>
+        document.getElementById('selectAll').addEventListener('click', function() {
+            var checkboxes = document.getElementsByClassName('select-checkbox');
+            for (var i = 0; i < checkboxes.length; i++) {
+                checkboxes[i].checked = true;
+            }
+        });
+    </script>
+</body>
+</html>

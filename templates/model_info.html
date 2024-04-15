@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Model details</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+</head>
+<body class="container mt-5 bg-primary text-white">
+
+    <div class="card mt-5">
+        <div class="card-body">
+            <h5 class="card-title text-primary text-center">Model details</h5>
+            <table class="table table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="font-weight-bold text-warning">Id:</td>
+                        <td class="font-weight-bold text-dark">{{ model.id }}</td>
+                    </tr>
+                    <tr>
+                        <td class="font-weight-bold text-warning">Model path:</td>
+                        <td class="font-weight-bold text-dark">{{ model.path }}</td>
+                    </tr>
+                    <tr>
+                        <td class="font-weight-bold text-warning">Training date:</td>
+                        <td class="font-weight-bold text-dark">{{ model.trainingDate }}</td>
+                    </tr>
+                    <tr>
+                        <td class="font-weight-bold text-warning">Accuracy:</td>
+                        <td class="font-weight-bold text-dark">{{ model.accuracy }}</td>
+                    </tr>
+                    <tr>
+                        <td class="font-weight-bold text-warning">Precision:</td>
+                        <td class="font-weight-bold text-dark">{{ model.precision }}</td>
+                    </tr>
+                    <tr>
+                        <td class="font-weight-bold text-warning">Recall:</td>
+                        <td class="font-weight-bold text-dark">{{ model.recall }}</td>
+                    </tr>
+                    <tr>
+                        <td class="font-weight-bold text-warning">F1 score:</td>
+                        <td class="font-weight-bold text-dark">{{ model.f1_score }}</td>
+                    </tr>
+                    <tr>
+                        <td class="font-weight-bold text-warning">CreationManager ID:</td>
+                        <td class="font-weight-bold text-dark">{{ model.creationManager.id }}</td>
+                    </tr>
+                    <tr>
+                        <td class="font-weight-bold text-warning">State:</td>
+                        <td class="font-weight-bold text-dark">{{ model.state }}</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a href="/active?id={{ model.id }}">Active</a>
+                        </td>
+                        <td>
+                            <a href="/inactive?id={{ model.id }}">Inactive</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="d-flex flex-column mt-3">
+<!--        <div class="d-flex justify-content-center"><a class="btn btn-danger" href="/choose-image?id={{ model.id }}">Retrain</a></div>-->
+        <div class="d-flex justify-content-center"><a class="btn btn-secondary" href="/home-model">Return home page</a></div>
+    </div>
+</body>
+</html>
